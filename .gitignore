@@ -30,7 +30,6 @@ data_cache/
 .ropeproject
 *.swp
 *.swo
-.cursor/
 *~
 .project
 .pydevproject

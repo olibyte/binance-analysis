@@ -1,0 +1,78 @@
+# Binance Analysis Project Guide
+
+## Project Purpose
+
+This project is a cryptocurrency technical analysis tool built on Python that:
+- Fetches historical price data from Binance API
+- Implements candlestick pattern detection algorithms
+- Performs trading strategy backtesting
+- Visualizes market data and trading signals
+
+## Code Structure
+
+The codebase is organized as follows:
+- Core modules (`data.py`, `patterns.py`, `calculations.py`, `charts.py`, `config.py`) provide foundational functionality
+- Trading bot modules (`rsi_bot_*.py`, `volume_bot_*.py`) implement specific trading strategies
+- Jupyter notebook (`binance_analysis.ipynb`) serves as the main interface
+
+## Development Guidelines
+
+When working with this codebase, follow these principles:
+
+1. **Configuration**: All parameters should be centralized in `config.py`
+2. **Data Processing**:
+   - Use pandas DataFrames consistently
+   - Handle API errors and rate limiting properly
+   - Implement caching to avoid redundant API calls
+3. **Pattern Detection**:
+   - Functions should accept and return DataFrames with OHLC data
+   - Add indicator columns to DataFrames rather than returning separate values
+   - Support both bullish and bearish pattern variants
+4. **Visualization**:
+   - Use matplotlib/seaborn with consistent styling
+   - Include proper legends and labels
+   - Follow color conventions in existing charts
+
+## Common Tasks
+
+### Environment Setup
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On macOS/Linux
+pip install -r requirements.txt
+```
+
+### Running the Analysis
+```bash
+jupyter notebook
+# Open binance_analysis.ipynb
+```
+
+### Modifying Trading Parameters
+Edit `config.py` to change:
+- Trading pairs (`SYMBOL = "BTCUSDT"`)
+- Time intervals (`INTERVAL = "4h"`)
+- Technical indicator parameters (`DEFAULT_RSI_PERIOD = 14`)
+
+## Example Workflow
+
+A typical workflow includes:
+1. Configure parameters in `config.py`
+2. Fetch historical data using functions from `data.py`
+3. Apply pattern detection from `patterns.py` to identify trading signals
+4. Run backtests using bot modules to evaluate performance
+5. Generate visualization with `charts.py` to analyze results
+
+## API Usage Notes
+
+- The project uses Binance API with rate limiting (respect the delay parameters)
+- Data is returned in UTC timezone
+- Default request limit is 500 klines (maximum 1000)
+- All prices are in USDT (Tether)
+
+## Documentation
+
+For more comprehensive documentation, refer to:
+- `CLAUDE.md`: Detailed project overview
+- `setup_instructions.md`: Installation guide
+- Function docstrings within each module
