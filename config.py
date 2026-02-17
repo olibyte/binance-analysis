@@ -10,7 +10,7 @@ and technical indicator parameters.
 # API Configuration
 # ============================================================================
 BASE_URL = "https://api.binance.com/api/v3/klines"
-DEFAULT_LIMIT = 1500  # Maximum number of klines to fetch (Binance max: 1000 per request)
+DEFAULT_LIMIT = 1000  # Maximum number of klines to fetch (Binance max: 1000 per request)
 
 # Historical Data Collection Configuration
 # ============================================================================
@@ -22,8 +22,8 @@ HISTORICAL_CHUNK_SIZE = 1000  # Candles per chunk/request (default: 1000, Binanc
 # Trading Pair Configuration
 # ============================================================================
 SYMBOL = "BTCUSDT"  # Trading pair symbol (e.g., 'BTCUSDT', 'ETHUSDT')
-INTERVAL = "1d"    # Time interval (1m, 3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M)
-
+INTERVAL = "1h"    # Time interval (1m, 3m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 8h, 12h, 1d, 3d, 1w, 1M)
+DAYS = 300
 # ============================================================================
 # Chart Display Configuration
 # ============================================================================
